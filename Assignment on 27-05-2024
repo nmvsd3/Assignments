@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Officiis architecto molestiae vitae qui quae nesciunt culpa. Molestias magnam
+            nisi iure vitae cupiditate earum labore nemo obcaecati. Adipisci aliquam accusantium veniam!
+        </p>
+    </div>
+
+    <button onclick="showAndHide()">Hide/show</button>
+
+
+    <script>
+
+
+        let flag = true;
+
+        function showAndHide() {
+
+            let para = document.getElementsByTagName('p');
+
+            if (flag == true) {
+                para[0].style.display = 'none';
+                flag = false;
+            } else {
+                para[0].style.display = 'block';
+                flag = true;
+            }
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
