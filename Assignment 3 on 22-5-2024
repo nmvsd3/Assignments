@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Assignment</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+
+    }
+
+    .container>div {
+        width: 50%;
+    }
+
+    .container>div:first-child {
+        display: flex;
+        flex-direction: column;
+        color: black;
+    }
+
+
+    .container>div:first-child h1 {
+        text-align: center;
+    }
+
+    .child-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+    }
+
+    .child-container>div {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 160px;
+        margin: 30px;
+
+    }
+
+    .child-container>div img {
+        width: 100%;
+    }
+
+    .child-container>div span {
+        padding-top: 3px;
+    }
+
+    .container>div:last-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+    }
+
+    .child2-container>h1 {
+        text-align: center;
+        margin-bottom: 2%;
+    }
+
+    .child2-container p {
+        font-size: large;
+    }
+
+    .child3-container {
+        display: flex;
+        justify-content: end;
+        margin-top: 5%;
+        ;
+    }
+
+
+    .child3-container>button {
+        background-color: rgb(199, 199, 41);
+        padding: 1rem;
+        font-style: normal;
+        font-weight: bold;
+        border: none;
+        border-radius: 5%;
+    }
+
+    #child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div>
+            <div>
+                <h1>WHAT SPECIAL ABOUT FLATEHEADS ?</h1>
+            </div>
+            <div class="child-container">
+                <div>
+                    <img src="1.png" alt="">
+                    <span>Innovative Material</span>
+                </div>
+                <div>
+                    <img src="2.jpg" alt="">
+                    <span>Environmental Friently</span>
+                </div>
+                <div>
+                    <img src="3.jpg" alt="">
+                    <span>Altra Light Weight</span>
+                </div>
+                <div>
+                    <img src="3.jpg" alt="">
+                    <span>Supreme Comfort</span>
+                </div>
+                <div>
+                    <img src="5.jpg" alt="">
+                    <span>Smart Desing</span>
+                </div>
+                <div id="child" class="child3-container">
+                    <button>LEARN MORE</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="child2-container">
+                <h1>BRAND STORY</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum cupiditate facere quas eveniet
+                    repellat unde veritatis omnis blanditiis.
+                    Fugit autem cumque eos harum accusantium. Doloremque quo corporis dolor temporibus facere!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum cupiditate facere quas eveniet
+                    repellat unde veritatis omnis blanditiis.
+                    Fugit autem cumque eos harum accusantium. Doloremque quo corporis dolor temporibus facere!
+                </p>
+            </div>
+            <div class="child3-container">
+                <button>LEARN MORE</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
