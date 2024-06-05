@@ -1,0 +1,93 @@
+package operators;
+
+public class Arithmetic {
+	public static void main (String[] agrs) {
+		int a = 10;
+        int b = 3;
+        
+      
+        System.out.println("a + b = " + (a + b));
+        System.out.println("a - b = " + (a - b));
+        System.out.println("a * b = " + (a * b));
+        System.out.println("a / b = " + (a / b));
+        System.out.println("a % b = " + (a % b));
+          
+    }
+
+	}
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+package operators;
+
+public class Assignment {
+	public static void main(String[] args)
+    {
+	int a = 3;
+    System.out.println("a += 3: " + (a += 3));
+    System.out.println("a -= 2: " + (a -= 2));
+    System.out.println("a *= 4: " + (a *= 4));
+    System.out.println("a /= 3: " + (a /= 3));
+    System.out.println("a %= 2: " + (a %= 2));
+    }
+}
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+package operators;
+
+public class Bitwise {
+	public static void main(String[] args)
+    {
+        int a = 10;
+    
+          
+        System.out.println("a<<1 : " + (a << 1));
+        System.out.println("a>>1 : " + (a >> 1));
+    }
+
+}
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+package operators;
+
+public class Boolean {
+	public static void main(String[] args){
+		int a=10;
+		int b=2;
+		System.out.println(a&b);
+		System.out.println(a|b);
+		System.out.println(a^b);
+	}
+
+}
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+package operators;
+
+public class Comparision {
+	public static void main(String[] args)
+    {
+        
+        int a = 10;
+        int b = 3;
+        int c = 5;
+
+        System.out.println("a > b: " + (a > b));
+        System.out.println("a < b: " + (a < b));
+        System.out.println("a >= b: " + (a >= b));
+        System.out.println("a <= b: " + (a <= b));
+        System.out.println("a == c: " + (a == c));
+        System.out.println("a != c: " + (a != c));
+    }
+
+}
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+package operators;
+
+public class ShortCut {
+	public static void main (String[] args) {
+       
+        boolean x = true;
+        boolean y = false;
+      
+        System.out.println("x && y: " + (x && y));
+        System.out.println("x || y: " + (x || y));
+        
+    }
+}
+
