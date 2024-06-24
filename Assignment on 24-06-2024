@@ -1,3 +1,8 @@
+Question 1.1. you will take 5 inputs of student type of objects and save it inside the arraylist collection.
+
+and iterator over the collection and print in the console.
+
+_-------------------------------------------------------------------------------------------------------------------------------------------
 package array;
 
 
