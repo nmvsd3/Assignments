@@ -1,0 +1,65 @@
+package array;
+
+
+public class Student {
+    String name;
+    int age;
+    String gender;
+    int rollNo;
+
+    
+    public Student(String name, int age, String gender, int rollNo) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.rollNo = rollNo;
+    }
+
+   
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Age: " + age + ", Gender: " + gender + ", Roll No: " + rollNo;
+    }
+}
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________
+package array;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+public class StudentCollection {
+    public static void main(String[] args) {
+        ArrayList<Student> students = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter details for student " + (i + 1) + ":");
+            System.out.print("Name: ");
+            String name = scanner.nextLine();
+            System.out.print("Age: ");
+            int age = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Gender: ");
+            String gender = scanner.nextLine();
+            System.out.print("Roll No: ");
+            int rollNo = scanner.nextInt();
+            scanner.nextLine(); 
+
+           
+            Student student = new Student(name, age, gender, rollNo);
+            students.add(student);
+        }
+
+        
+        Iterator<Student> iterator = students.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+        scanner.close();
+    }
+}
+___________________________________________________________________________________________________________________________________________________________________________________________________________________
