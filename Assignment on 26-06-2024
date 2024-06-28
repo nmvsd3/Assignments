@@ -1,0 +1,46 @@
+package date26;
+
+public class MainAnonymous {
+	 public static void main(String[] args) {
+	        MyInterface obj = new MyInterface() {
+	            @Override
+	            public void myMethod() {
+	                System.out.println("This is Calling method using anonymous inner type.");
+	            }
+	        };
+	        
+	        obj.myMethod();
+	   }
+
+}
+________________________________________________________________________________________________________________
+package date26;
+
+public class MainLambda {
+	public static void main(String[] args) {
+        MyInterface obj = () -> System.out.println("This is Calling method using lambda expression.");
+        obj.myMethod();
+    }
+}
+_____________________________________________________________________________________________________________________
+package date26;
+
+public class MainMethodReference {
+
+	public static void main(String[] args) {
+        MainMethodReference mainObj = new MainMethodReference();
+        MyInterface obj = mainObj::anotherMethod;
+        obj.myMethod();
+    }
+    
+    public void anotherMethod() {
+        System.out.println("This is Calling another method using method reference.");
+    }
+}
+_____________________________________________________________________________________________________________________________
+package date26;
+
+public class MyInterface {
+	void myMethod();
+
+}
