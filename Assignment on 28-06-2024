@@ -1,0 +1,144 @@
+import java.util.*;
+
+// Employee class with attributes: name, age, salary, gender
+class Employee implements Comparable<Employee> {
+    private String name;
+    private int age;
+    private double salary;
+    private String gender;
+
+    // Constructor
+    public Employee(String name, int age, double salary, String gender) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.gender = gender;
+    }
+
+    // Getters
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    // Implementing compareTo method for natural ordering by name (ascending)
+    @Override
+    public int compareTo(Employee other) {
+        return this.name.compareTo(other.name);
+    }
+
+    // Method to represent Employee object as a string
+    @Override
+    public String toString() {
+        return "Employee{name='" + name + "', age=" + age + ", salary=" + salary + ", gender='" + gender + "'}";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a TreeSet to store Employee objects (sorted by name automatically)
+        TreeSet<Employee> employees = new TreeSet<>();
+
+        // Populate the TreeSet with sample Employee objects
+        employees.add(new Employee("John Doe", 35, 50000.0, "Male"));
+        employees.add(new Employee("Jane Smith", 28, 60000.0, "Female"));
+        employees.add(new Employee("Michael Johnson", 40, 75000.0, "Male"));
+        employees.add(new Employee("Emily Davis", 32, 55000.0, "Female"));
+        employees.add(new Employee("David Wilson", 45, 80000.0, "Male"));
+        employees.add(new Employee("Emma Brown", 30, 58000.0, "Female"));
+        employees.add(new Employee("James Lee", 38, 70000.0, "Male"));
+        employees.add(new Employee("Olivia Martinez", 33, 56000.0, "Female"));
+        employees.add(new Employee("William Taylor", 42, 78000.0, "Male"));
+        employees.add(new Employee("Sophia Garcia", 31, 59000.0, "Female"));
+
+        // Display all employees (sorted by name)
+        System.out.println("All Employees:");
+        for (Employee emp : employees) {
+            System.out.println(emp);
+        }
+        System.out.println();
+
+        // Method to search employees by name (exact match)
+        String searchName = "David Wilson";
+        System.out.println("Searching for employee with name '" + searchName + "':");
+        Employee foundByName = findEmployeeByName(employees, searchName);
+        if (foundByName != null) {
+            System.out.println("Found: " + foundByName);
+        } else {
+            System.out.println("Employee with name '" + searchName + "' not found.");
+        }
+        System.out.println();
+
+        // Method to search employees by age range (minimum and maximum)
+        int minAge = 30;
+        int maxAge = 40;
+        System.out.println("Searching for employees between ages " + minAge + " and " + maxAge + ":");
+        Set<Employee> foundByAgeRange = findEmployeesByAgeRange(employees, minAge, maxAge);
+        if (!foundByAgeRange.isEmpty()) {
+            System.out.println("Employees found:");
+            for (Employee emp : foundByAgeRange) {
+                System.out.println(emp);
+            }
+        } else {
+            System.out.println("No employees found between ages " + minAge + " and " + maxAge + ".");
+        }
+        System.out.println();
+
+        // Method to search employees by salary range (minimum and maximum)
+        double minSalary = 55000.0;
+        double maxSalary = 75000.0;
+        System.out.println("Searching for employees with salaries between $" + minSalary + " and $" + maxSalary + ":");
+        Set<Employee> foundBySalaryRange = findEmployeesBySalaryRange(employees, minSalary, maxSalary);
+        if (!foundBySalaryRange.isEmpty()) {
+            System.out.println("Employees found:");
+            for (Employee emp : foundBySalaryRange) {
+                System.out.println(emp);
+            }
+        } else {
+            System.out.println("No employees found with salaries between $" + minSalary + " and $" + maxSalary + ".");
+        }
+    }
+
+    // Method to find an employee by exact name match
+    public static Employee findEmployeeByName(Set<Employee> employees, String name) {
+        for (Employee emp : employees) {
+            if (emp.getName().equals(name)) {
+                return emp;
+            }
+        }
+        return null;
+    }
+
+    // Method to find employees within a specific age range (inclusive)
+    public static Set<Employee> findEmployeesByAgeRange(Set<Employee> employees, int minAge, int maxAge) {
+        Set<Employee> result = new HashSet<>();
+        for (Employee emp : employees) {
+            if (emp.getAge() >= minAge && emp.getAge() <= maxAge) {
+                result.add(emp);
+            }
+        }
+        return result;
+    }
+
+    // Method to find employees within a specific salary range (inclusive)
+    public static Set<Employee> findEmployeesBySalaryRange(Set<Employee> employees, double minSalary, double maxSalary) {
+        Set<Employee> result = new HashSet<>();
+        for (Employee emp : employees) {
+            if (emp.getSalary() >= minSalary && emp.getSalary() <= maxSalary) {
+                result.add(emp);
+            }
+        }
+        return result;
+    }
+}
