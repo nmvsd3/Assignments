@@ -1,0 +1,21 @@
+
+function multiply(a, b) {
+  return a * b;
+}
+
+
+function divide(callback, divisor, a, b) {
+  if (divisor === 0) {
+    throw new Error("Divisor cannot be zero");
+  }
+  const product = callback(a, b);
+  return product / divisor;
+}
+
+
+try {
+  const result = divide(multiply, 2, 6, 3);
+  console.log(result); // Output: 9
+} catch (error) {
+  console.error(error.message);
+}
