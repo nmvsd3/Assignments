@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhu</title>
+</head>
+<body>
+    <table border="" cellpadding="20" cellspacing="0">
+        <tr class="row">
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Institute</th>
+            <th>Passing year</th>
+            <th>Degree</th>
+            <th>Marks</th>
+
+        </tr>
+        <tr class="row">
+            <td>1</td>
+            <td>Harsha>
+            <td>KLU</td>
+            <td>2024</td>
+            <td>B.Tech</td>
+            <td>85%</td>
+        </tr>
+        <tr class="row">
+            <td>2</td>
+            <td>Suraj</td>
+            <td>KLU</td>
+            <td>2024</td>
+            <td>B.Tech</td>
+            <td>79%</td>
+            
+        </tr>
+        <tr class="row">
+            <td>3</td>
+            <td>Poorna</td>
+            <td>KLU</td>
+            <td>2024</td>
+            <td>B.Tech</td>
+            <td>78%</td>
+        </tr>
+        <tr class="row">
+            <td>4</td>
+            <td>Charan</td>
+            <td>KLU</td>
+            <td>2024</td>
+            <td>B.Tech</td>
+            <td>86%</td>
+        </tr>
+           <tr class="row">
+            <td>5</td>
+            <td>Kishore</td>
+            <td>KLU</td>
+            <td>2024</td>
+            <td>B.Tech</td>
+            <td>85%</td>
+           </tr>
+    </table>
+    <script src="dompract.js">
+
+    </script>
+    
+</body>
+</html>
+______________________________________________________________________________________________________________________________________________________________
+let row = document.querySelectorAll(".row")
+console.log(row[1].innerText);
+console.log(row[2].innerText);
+console.log(row[3].innerText);
+console.log(row[4].innerText);
+console.log(row[5].innerText);
