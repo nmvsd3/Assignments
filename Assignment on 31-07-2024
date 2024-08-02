@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of books</title>
+
+</head>
+<style>
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+
+    } 
+
+    .container>div {
+
+        padding: 10px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+
+    .container>div>div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .container>div>div>span {
+        padding: 2px;
+        margin: 5px;
+    }
+</style>
+
+<body>
+
+    <button onclick="loadBooks()">Load the books</button>
+    <div class="container"></div>
+
+    <script src="./books.js"></script>
+</body>
+
+</html>
+_____________________________________________________________________________________________________________________________________________________-
+[
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "price": 18.99,
+      "isbn": "9780061120084",
+      "publisher": "J.B. Lippincott & Co.",
+      "year": 1960,
+      "available": true,
+      "bookId": 1
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "price": 15.99,
+      "isbn": "9780451524935",
+      "publisher": "Secker & Warburg",
+      "year": 1949,
+      "available": true,
+      "bookId": 2
+    },
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "price": 10.99,
+      "isbn": "9780743273565",
+      "publisher": "Charles Scribner's Sons",
+      "year": 1925,
+      "available": true,
+      "bookId": 3
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "price": 12.99,
+      "isbn": "9781503290563",
+      "publisher": "T. Egerton",
+      "year": 1813,
+      "available": true,
+      "bookId": 4
+    },
+    {
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "price": 14.99,
+      "isbn": "9780316769488",
+      "publisher": "Little, Brown and Company",
+      "year": 1951,
+      "available": true,
+      "bookId": 5
+    },
+    {
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "price": 13.99,
+      "isbn": "9780547928227",
+      "publisher": "George Allen & Unwin",
+      "year": 1937,
+      "available": true,
+      "bookId": 6
+    },
+    {
+      "title": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "price": 16.99,
+      "isbn": "9781451673319",
+      "publisher": "Ballantine Books",
+      "year": 1953,
+      "available": true,
+      "bookId": 7
+    },
+    {
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "price": 19.99,
+      "isbn": "9781503280786",
+      "publisher": "Harper & Brothers",
+      "year": 1851,
+      "available": true,
+      "bookId": 8
+    },
+    {
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "price": 25.99,
+      "isbn": "9780199232765",
+      "publisher": "The Russian Messenger",
+      "year": 1869,
+      "available": true,
+      "bookId": 9
+    },
+    {
+      "title": "The Odyssey",
+      "author": "Homer",
+      "price": 17.99,
+      "isbn": "9780140268867",
+      "publisher": "Penguin Classics",
+      "year": -800,
+      "available": true,
+      "bookId": 10
+    }
+  ]
+  _______________________________________________________________________________________________________________________________________________________
+
+
+function loadBooks() {
+
+
+   
+
+    let xmlRequest = new XMLHttpRequest();
+
+
+    xmlRequest.open("GET", "http://127.0.0.1:5500/class/book.json")
+
+    xmlRequest.send();
+
+
+    xmlRequest.onload = function () {
+
+        let divCollection = document.getElementsByClassName("container");
+
+        let data = JSON.parse(xmlRequest.responseText);
+
+
+        console.log(data);
+
+        for (let i = 0; i < data.length; i++) {
+
+            
+            let div = document.createElement("div");
+
+
+
+            div.setAttribute("id", `bookId-${data[i].bookId}`);
+
+
+            let h1 = document.createElement("h1");
+            h1.innerText = data[i].title;
+
+           
+            let span = document.createElement("span");
+            span.innerText = data[i].author;
+
+            
+            let span1 = document.createElement("span");
+            span1.innerText = data[i].year;
+
+            let span2 = document.createElement("span");
+            span2.innerText = data[i].price;
+
+            let span3 = document.createElement("span");
+            span3.innerText = data[i].available ? "Book is available" : "Book is not available";
+
+            let div1 = document.createElement("div");
+
+            div1.append(span, span1, span2, span3);
+
+            div.append(h1, div1);
+
+
+            divCollection[0].appendChild(div)
+        }
+
+
+    }
+
+ 
+}
