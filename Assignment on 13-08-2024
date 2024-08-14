@@ -1,0 +1,56 @@
+
+import React from 'react';
+import Items from './Items'; 
+
+function App() {
+  // List of sweets items
+  const sweetsList = [
+    "Chocolate Cake",
+    "Vanilla Ice Cream",
+    "Apple Pie",
+    "Gummy Bears",
+    "Lemon Tart",
+    "Strawberry Cheesecake"
+  ];
+
+  return (
+    <div>
+      <h1>Welcome to the Sweet Shop</h1>
+      {/* Pass the sweetsList to the Items component */}
+      <Items items={sweetsList} />
+    </div>
+  );
+}
+
+export default App;
+_________________________________________________________________________________________________________________________
+// Items.js
+import React from 'react';
+
+function Items({ items }) {
+  return (
+    <div>
+      <h2>Our Sweet Items</h2>
+      <ul>
+        {/* Map through the items array and display each item in a list */}
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default Items;
+_________________________________________________________________________
+// index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App'; // Importing the App component
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
