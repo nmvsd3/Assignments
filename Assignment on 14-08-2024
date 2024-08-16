@@ -1,0 +1,55 @@
+import React from "react";
+
+
+
+class Greeting extends React.Component {
+
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            message: props.message
+        }
+    }
+
+    // static getDerivedStateFromProps(props, state) {
+    //     return { message: props.message };
+    // }
+
+    componentDidMount() {
+        console.log("component is mounted successfully");
+    }
+
+    shouldComponentUpdate() {
+
+        return true;
+    }
+
+    componentDidUpdate() {
+        // 
+        console.log("component is update");
+    }
+
+    componentWillUnmount() {
+        // code
+        console.log("now component is deleting");
+    }
+    clicked = () => {
+        this.setState({ message: "update welcome" })
+    }
+
+    render() {
+
+
+
+        return (
+            <>
+                <h1>{this.state.message}</h1>
+                <button onClick={this.clicked} >Change greeting</button>
+            </>
+        );
+    }
+}
+
+export default Greeting;
