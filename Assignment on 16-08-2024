@@ -1,0 +1,116 @@
+import React, { useState } from 'react';
+
+function StudentList() {
+  
+  const [student, setStudent] = useState({
+    name: '',
+    age: '',
+    roll: '',
+    marks: ''
+  });
+
+ 
+  const [students, setStudents] = useState([]);
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setStudent({
+      ...student,
+      [name]: value
+    });
+  };
+
+ 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStudents([...students, student]);
+    setStudent({
+      name: '',
+      age: '',
+      roll: '',
+      marks: ''
+    });
+  };
+
+  return (
+    <div>
+      <h2>Student Form</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={student.name}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Age:
+            <input
+              type="number"
+              name="age"
+              value={student.age}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Roll:
+            <input
+              type="text"
+              name="roll"
+              value={student.roll}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Marks:
+            <input
+              type="number"
+              name="marks"
+              value={student.marks}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <button type="submit">Add Student</button>
+      </form>
+
+      <h2>Student List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Roll</th>
+            <th>Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+          {students.map((student, index) => (
+            <tr key={index}>
+              <td>{student.name}</td>
+              <td>{student.age}</td>
+              <td>{student.roll}</td>
+              <td>{student.marks}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default StudentList;
